@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1, h2, h3 {
+    @apply before:content-['#_'];
+}
+
+a {
+    @apply text-blue-500 hover:text-blue-700;
+}
