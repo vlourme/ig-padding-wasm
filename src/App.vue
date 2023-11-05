@@ -9,7 +9,7 @@
       </div>
 
       <div v-if="error" class="bg-red-500 rounded-md p-4">
-        <p class="text-red-100">An error occured while processing your images, the format 
+        <p class="text-red-100">An error occured while processing your images, the format
           may not be supported?
         </p>
       </div>
@@ -28,18 +28,20 @@
           <label>Background color</label>
         </div>
 
-        <div class="flex">
-          <label class="flex items-center mr-4">
-            <input v-model="color" type="radio" value="white" name="color"
-              class="w-4 h-4 text-blue-600 mr-2 bg-gray-100 border-gray-300">
-            <span>White</span>
-          </label>
+        <div class="flex space-x-4">
+          <div>
+            <input type="radio" id="white" class="peer hidden" v-model="color" value="white" />
+            <label for="white" class="flex items-center cursor-pointer peer-checked:underline hover:text-blue-400">
+              <span>White</span>
+            </label>
+          </div>
 
-          <label class="flex items-center mr-4">
-            <input v-model="color" type="radio" value="black" name="color"
-              class="w-4 h-4 text-blue-600 mr-2 bg-gray-100 border-gray-300">
-            <span>Black</span>
-          </label>
+          <div>
+            <input type="radio" id="black" class="peer hidden" v-model="color" value="black" />
+            <label for="black" class="flex items-center cursor-pointer peer-checked:underline hover:text-blue-400">
+              <span>Black</span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -68,12 +70,13 @@
       <div>
         <h2 class="text-2xl font-bold text-amber-500">How this works</h2>
         <p>
-          This web application is an experiment using WebAssembly, image processing is done in <a
+          This web application is an experiment that utilizes WebAssembly. Image processing is carried out in the <a
             href="https://www.rust-lang.org">Rust</a>
-          programming language, using <a href="https://rustwasm.github.io/wasm-pack/">wasm-pack</a>.
-          Images are computed directly on your browser, nothing is sent to a server.
+          programming language using <a href="https://rustwasm.github.io/wasm-pack/">wasm-pack</a>. The images are computed directly in your browser, and nothing is sent to a
+          server.
         </p>
-        <p class="mt-2">Source code can be found <a href="https://github.com/vlourme/ig-padding-wasm">here</a>.</p>
+        <p class="mt-2">The source code can be found <a href="https://github.com/vlourme/ig-padding-wasm">here</a>.</p>
+        <p class="mt-2">You can also check out my other work at <a href="https://vlour.me">vlour.me</a>.</p>
       </div>
     </main>
   </div>
