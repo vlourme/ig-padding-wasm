@@ -1,3 +1,4 @@
+extern crate alloc;
 extern crate wasm_bindgen;
 
 use std::cmp::max;
@@ -6,9 +7,12 @@ use image::{codecs::jpeg::JpegEncoder, DynamicImage, GenericImage, Rgba};
 use serde::Deserialize;
 use wasm_bindgen::prelude::*;
 
-#[cfg(feature = "wee_alloc")]
+#[cfg(target_arch = "wasm32")]
+use lol_alloc::{FreeListAllocator, LockedAllocator};
+
+#[cfg(target_arch = "wasm32")]
 #[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+static ALLOCATOR: LockedAllocator<FreeListAllocator> = LockedAllocator::new(FreeListAllocator::new());
 
 #[derive(Deserialize)]
 pub struct ImageConfig {
